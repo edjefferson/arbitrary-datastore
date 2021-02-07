@@ -4,5 +4,4 @@ Rails.application.routes.draw do
 
   get '/retrieve' => 'records#retrieve'
 
-
 end
