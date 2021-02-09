@@ -9,9 +9,9 @@ class RecordsController < ApplicationController
 
   def retrieve
     if params["offset"] && params["project_id"]
-      records = Record.where(project_id: params["project_id"].to_i).where("id < #{params["offset"]}").order(id: :desc).limit(100)
+      records = Record.where(project_id: params["project_id"].to_i).where("id < #{params["offset"]}").order(id: :desc).limit(2000)
     elsif params["project_id"]
-      records = Record.where(project_id: params["project_id"].to_i).order(id: :desc).limit(100)
+      records = Record.where(project_id: params["project_id"].to_i).order(id: :desc).limit(2000)
     end
     render :json => records
   end
