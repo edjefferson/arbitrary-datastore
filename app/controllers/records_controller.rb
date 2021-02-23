@@ -4,11 +4,9 @@ class RecordsController < ApplicationController
       Record.create(project_id: params["project_id"],json_field: params["record"].to_json)
     end
     render :json => ["egg"]
-
   end
 
   def retrieve
-
     limit = params["limit"].to_i ? = params["limit"].to_i ? 100
     if params["offset"] && params["project_id"]
       records = Record.where(project_id: params["project_id"].to_i).where("id < #{params["offset"]}").order(id: :desc).limit(limit)

@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   get '/retrieve' => 'records#retrieve'
 
+  post '/update_tag' => 'records#update_tag'
+
 end
