@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_003730) do
+ActiveRecord::Schema.define(version: 2021_02_23_100706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(version: 2021_02_07_003730) do
   create_table "records", force: :cascade do |t|
     t.integer "project_id"
     t.text "json_field"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "records_tags", id: false, force: :cascade do |t|
+    t.bigint "record_id", null: false
+    t.bigint "tag_id", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.text "key"
+    t.text "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
