@@ -7,7 +7,7 @@ class RecordsController < ApplicationController
   end
 
   def retrieve
-    limit = params["limit"].to_i ? = params["limit"].to_i ? 100
+    limit = params["limit"].to_i ? = params["limit"].to_i : 100
     if params["offset"] && params["project_id"]
       records = Record.where(project_id: params["project_id"].to_i).where("id < #{params["offset"]}").order(id: :desc).limit(limit)
     elsif params["project_id"]
